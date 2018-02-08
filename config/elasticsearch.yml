@@ -30,3 +30,15 @@ discovery:
   zen:
     ping.unicast.hosts: ${DISCOVERY_SERVICE}
     minimum_master_nodes: ${NUMBER_OF_MASTERS}
+indices:
+  recovery:
+    max_bytes_per_sec: 250mb
+
+cluster:
+  routing:
+    allocation:
+      node_concurrent_incoming_recoveries: 5
+      node_concurrent_outgoing_recoveries: 5
+      allow_rebalance: indices_all_active
+      
+      
